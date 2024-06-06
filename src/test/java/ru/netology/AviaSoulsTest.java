@@ -66,6 +66,7 @@ public class AviaSoulsTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldNoRouteSearch() { //поиск по не известному маршруту
         AviaSouls avia = new AviaSouls();
@@ -82,7 +83,7 @@ public class AviaSoulsTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-        @Test
+    @Test
     public void shouldOneRouteSearch() { //поиск единственного маршрута
         AviaSouls avia = new AviaSouls();
 
@@ -99,7 +100,7 @@ public class AviaSoulsTest {
     }
 
     @Test
-    public void shouldFlightTime2 (){ //упорядочивание билетов по времени
+    public void shouldFlightTime2() { //упорядочивание билетов по времени
         AviaSouls avia = new AviaSouls();
         Comparator<Ticket> comparator = new TicketTimeComparator();
 
@@ -111,8 +112,8 @@ public class AviaSoulsTest {
         Arrays.sort(expected, comparator);
     }
 
-        @Test
-    public void shouldFlightTime1 (){ //упорядочивание билетов по времени
+    @Test
+    public void shouldFlightTime1() { //упорядочивание билетов по времени
         AviaSouls avia = new AviaSouls();
         Comparator<Ticket> comparator = new TicketTimeComparator();
 
@@ -133,7 +134,7 @@ public class AviaSoulsTest {
         avia.add(ticket3);
         avia.add(ticket4);
 
-        Ticket[] expected = { ticket1, ticket2, ticket3 };
+        Ticket[] expected = {ticket1, ticket2, ticket3};
         Ticket[] actual = avia.searchAndSortBy("Sochi", "Saratov", comparator);
         Arrays.sort(expected, comparator);
 
