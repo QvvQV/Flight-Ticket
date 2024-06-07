@@ -25,9 +25,9 @@ public class Ticket implements Comparable<Ticket> {
         return to;
     }
 
-    public int getPrice() {
-        return price;
-    }
+//    public int getPrice() {
+//        return price;
+//    }
 
     public int getTimeFrom() {
         return timeFrom;
@@ -39,18 +39,18 @@ public class Ticket implements Comparable<Ticket> {
 
 
     // Вспомогательные методы для корректной работы equals
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return price == ticket.price && timeFrom == ticket.timeFrom && timeTo == ticket.timeTo && from.equals(ticket.from) && to.equals(ticket.to);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(from, to, price, timeFrom, timeTo);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Ticket ticket = (Ticket) o;
+//        return price == ticket.price && timeFrom == ticket.timeFrom && timeTo == ticket.timeTo && from.equals(ticket.from) && to.equals(ticket.to);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(from, to, price, timeFrom, timeTo);
+//    }
 
 
     @Override
