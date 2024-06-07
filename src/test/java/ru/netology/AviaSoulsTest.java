@@ -131,8 +131,8 @@ public class AviaSoulsTest {
         Assertions.assertArrayEquals(expected, tickets);
     }
 
-        @Test
-    public void shouldFlightTime3() { //время вылета совпадает
+    @Test
+    public void shouldFlightTime3() { //время прилёта совпадает
         AviaSouls avia = new AviaSouls();
         Comparator<Ticket> comparator = new TicketTimeComparator();
 
@@ -154,10 +154,30 @@ public class AviaSoulsTest {
         avia.add(ticket1); //время прилёта 12
         avia.add(ticket2); //время прилёта 11
         avia.add(ticket3); //время прилёта 13
-        avia.add(ticket4); //время придёта 12, но другой маршрут
+        avia.add(ticket4); //время прилёта 12, но другой маршрут
 
         Ticket[] expected = {ticket1, ticket2, ticket3};
         Ticket[] actual = avia.searchAndSortBy("Sochi", "Saratov", comparator);
+        Arrays.sort(expected, comparator);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+        @Test
+    public void shouldSortFlightTime1() { //сортировка по веремени и названию
+        AviaSouls avia = new AviaSouls();
+        Comparator<Ticket> comparator = new TicketTimeComparator();
+
+        avia.add(ticket1); //время прилёта 12
+        avia.add(ticket2); //время прилёта 11
+        avia.add(ticket3); //время прилёта 13
+        avia.add(ticket4);
+        avia.add(ticket6); //время прилёта 12, но другой маршрут
+        //время прилёта 12, но другой маршрут
+
+
+        Ticket[] expected = {ticket4, ticket6};
+        Ticket[] actual = avia.searchAndSortBy("Saint-Petersburg", "Kaliningrad", comparator);
         Arrays.sort(expected, comparator);
 
         Assertions.assertArrayEquals(expected, actual);
